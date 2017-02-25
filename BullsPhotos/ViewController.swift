@@ -8,9 +8,12 @@
 
 import UIKit
 
+// MARK: - ViewController: UIViewController
+
 class ViewController: UIViewController {
     
-    
+    // MARK: Outlets
+
     @IBOutlet weak var photoImageView: UIImageView!
 
     @IBOutlet weak var photoTitleLabel: UILabel!
@@ -22,15 +25,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
+    // MARK: Actions
+
     @IBAction func grabNewImage(_ sender: Any) {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: Configure UI
+
+    
+    // MARK: Make Network Request
+
 
 
 }
