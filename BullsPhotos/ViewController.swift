@@ -78,8 +78,26 @@ class ViewController: UIViewController {
                 }
             }
             
-            if error == nil {
-                if let data = data {
+            guard (error == nil) else {
+                displayError(error: "There was an error with the request \(error)")
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                    displayError(error: "Your status code returned something other than 2XX")
+                    return
+            }
+            
+            guard let data = data else {
+                displayError(error: "No Data returned by request")
+                return
+            }
+            
+            
+            
+            
+//            if error == nil {
+//                if let data = data {
                     let parsedResult: Any!
                     do {
                     parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
@@ -91,14 +109,30 @@ class ViewController: UIViewController {
                     //print(parsedResult)
                 
                     let parsedResultAnyObject: AnyObject = parsedResult as AnyObject
-                    if let photosDictionary = parsedResultAnyObject[APIConstants.FlickrResponseKeys.Photos] as? [String: AnyObject], let photoArray = photosDictionary[APIConstants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] {
+            
+            guard let stat = parsedResultAnyObject[APIConstants.FlickrResponseKeys.Status] as? String, stat == APIConstants.FlickrResponseValues.OKStatus else {
+                displayError(error: "Flickr API returned an error. See error code and message in \(parsedResultAnyObject)")
+                return
+            }
+            
+            guard let photosDictionary = parsedResultAnyObject[APIConstants.FlickrResponseKeys.Photos] as? [String: AnyObject], let photoArray = photosDictionary[APIConstants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] else {
+                displayError(error: "Cannot find Photos \(APIConstants.FlickrResponseKeys.Photos) nor Photo \(APIConstants.FlickrResponseKeys.Photo) in \(parsedResultAnyObject)")
+                return
+            }
+            
+//                    if let photosDictionary = parsedResultAnyObject[APIConstants.FlickrResponseKeys.Photos] as? [String: AnyObject], let photoArray = photosDictionary[APIConstants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] {
                         //print(photosDictionary)
                         //print(photoArray[5])
                         
                         let randomIndex = Int(arc4random_uniform(UInt32(photoArray.count)))
                         let photoDictionary = photoArray[randomIndex]
+            
+            guard let urlImageString = photoDictionary[APIConstants.FlickrResponseKeys.MediumURL] as? String, let urlImageTitle = photoDictionary[APIConstants.FlickrResponseKeys.Title] as? String else {
+                displayError(error: "Cannot find MediumPhoto \(APIConstants.FlickrResponseKeys.MediumURL) nor Title \(APIConstants.FlickrResponseKeys.Title) in \(photoDictionary)")
+                return
+            }
                         
-                        if let urlImageString = photoDictionary[APIConstants.FlickrResponseKeys.MediumURL] as? String, let urlImageTitle = photoDictionary[APIConstants.FlickrResponseKeys.Title] as? String {
+//                        if let urlImageString = photoDictionary[APIConstants.FlickrResponseKeys.MediumURL] as? String, let urlImageTitle = photoDictionary[APIConstants.FlickrResponseKeys.Title] as? String {
 //                            print(urlImageString)
 //                            print(urlImageTitle)
                             
@@ -114,13 +148,13 @@ class ViewController: UIViewController {
                                 
                                 
                             }
-                        }
-                        
+//                        }
+            
 
-                    }
-                
-                }
-            }
+//                    }
+            
+//                }
+//            }
             
             
         }
