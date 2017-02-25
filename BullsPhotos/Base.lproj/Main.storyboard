@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,34 +22,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHS-3C-0ja">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHS-3C-0ja">
                                 <rect key="frame" x="16" y="617" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get New Image"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Get Photos">
+                                    <color key="titleColor" red="1" green="0.15093417832785139" blue="0.11163651969907795" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="grabNewImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jZW-jV-MGd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Photo Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-hX-Pn0">
-                                <rect key="frame" x="16" y="537" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-hX-Pn0">
+                                <rect key="frame" x="16" y="440" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3me-Ji-8cg">
-                                <rect key="frame" x="16" y="57" width="343" height="275"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3me-Ji-8cg">
+                                <rect key="frame" x="0.0" y="57" width="375" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bulls Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KL-pC-wvx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulls Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KL-pC-wvx">
                                 <rect key="frame" x="16" y="28" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="5KL-pC-wvx" secondAttribute="leading" id="7oh-Rr-8Nk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5KL-pC-wvx" secondAttribute="trailing" id="BZd-6R-mpj"/>
+                            <constraint firstItem="3me-Ji-8cg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-292" id="Bze-3d-Pfq"/>
+                            <constraint firstAttribute="trailing" secondItem="3me-Ji-8cg" secondAttribute="trailing" id="Ere-nq-P2U"/>
+                            <constraint firstItem="5KL-pC-wvx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="J4j-C6-EZg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fHS-3C-0ja" secondAttribute="trailing" id="M27-vh-2WL"/>
+                            <constraint firstItem="3me-Ji-8cg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ulx-ma-gfJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oJS-hX-Pn0" secondAttribute="leading" id="VAc-OG-7eU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fHS-3C-0ja" secondAttribute="leading" id="Zls-iF-Wfh"/>
+                            <constraint firstItem="oJS-hX-Pn0" firstAttribute="top" secondItem="3me-Ji-8cg" secondAttribute="bottom" constant="8" id="f5v-eb-eTK"/>
+                            <constraint firstItem="3me-Ji-8cg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="jIv-6l-Acx"/>
+                            <constraint firstItem="3me-Ji-8cg" firstAttribute="top" secondItem="5KL-pC-wvx" secondAttribute="bottom" constant="8" id="nNv-yl-JaW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oJS-hX-Pn0" secondAttribute="trailing" id="sv2-51-HZN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fHS-3C-0ja" secondAttribute="bottom" constant="20" id="w7l-sP-yDz"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="grabImage" destination="fHS-3C-0ja" id="Duu-QP-U80"/>
