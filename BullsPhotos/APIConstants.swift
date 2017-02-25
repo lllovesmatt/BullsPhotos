@@ -33,7 +33,7 @@ struct APIConstants {
         static let ResponseFormat = "json"
         static let DisableJSONCallback = "1" /* 1 means "yes" */
         static let GalleryPhotosMethod = "flickr.galleries.getPhotos"
-        static let GalleryID = "72157629576214720" // 5704-72157622566655097
+        static let GalleryID = "72157629576214720"
         static let MediumURL = "url_m"
     }
     
