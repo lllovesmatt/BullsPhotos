@@ -78,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE69B35F1E62167400CF3209 /* API Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AEAB02E01E611CAC0094941E /* APIConstants.swift */,
+				AEAB02E21E611D270094941E /* GCD.swift */,
+			);
+			name = "API Helpers";
+			sourceTree = "<group>";
+		};
 		AEAB02A61E611A520094941E = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +112,7 @@
 			children = (
 				AEAB02B21E611A520094941E /* AppDelegate.swift */,
 				AEAB02B41E611A520094941E /* ViewController.swift */,
-				AEAB02E01E611CAC0094941E /* APIConstants.swift */,
-				AEAB02E21E611D270094941E /* GCD.swift */,
+				AE69B35F1E62167400CF3209 /* API Helpers */,
 				AEAB02B61E611A520094941E /* Main.storyboard */,
 				AEAB02B91E611A520094941E /* Assets.xcassets */,
 				AEAB02BB1E611A520094941E /* LaunchScreen.storyboard */,
@@ -520,6 +528,7 @@
 				AEAB02D91E611A520094941E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEAB02DA1E611A520094941E /* Build configuration list for PBXNativeTarget "BullsPhotosTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +537,7 @@
 				AEAB02DC1E611A520094941E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEAB02DD1E611A520094941E /* Build configuration list for PBXNativeTarget "BullsPhotosUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +546,7 @@
 				AEAB02DF1E611A520094941E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
