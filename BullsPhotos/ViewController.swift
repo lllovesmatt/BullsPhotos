@@ -9,10 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var photoImageView: UIImageView!
 
+    @IBOutlet weak var photoTitleLabel: UILabel!
+    
+    @IBOutlet weak var grabImage: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    
+    @IBAction func grabNewImage(_ sender: Any) {
+        
     }
 
     override func didReceiveMemoryWarning() {
