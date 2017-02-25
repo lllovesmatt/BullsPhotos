@@ -28,14 +28,33 @@ class ViewController: UIViewController {
     // MARK: Actions
 
     @IBAction func grabNewImage(_ sender: Any) {
-        
+        setUIEnabled(false)
+        getImageFromFlickr()
     }
 
     // MARK: Configure UI
 
+    private func setUIEnabled(_ enabled: Bool) {
+        photoTitleLabel.isEnabled = enabled
+        grabImage.isEnabled = enabled
+        
+        if enabled {
+            grabImage.alpha = 1.0
+        } else {
+            grabImage.alpha = 0.5
+        }
+    }
     
     // MARK: Make Network Request
 
+    private func getImageFromFlickr() {
+        
+        let urlString = "\(APIConstants.Flickr.APIBaseURL)?\(APIConstants.FlickrParameterKeys.Method)=\(APIConstants.FlickrParameterValues.GalleryPhotosMethod)&\(APIConstants.FlickrParameterKeys.APIKey)=\(APIConstants.FlickrParameterValues.APIKey)&\(APIConstants.FlickrParameterKeys.GalleryID)=\(APIConstants.FlickrParameterValues.GalleryID)&\(APIConstants.FlickrParameterKeys.Extras)=\(APIConstants.FlickrParameterValues.MediumURL)&\(APIConstants.FlickrParameterKeys.Format)=\(APIConstants.FlickrParameterValues.ResponseFormat)&\(APIConstants.FlickrParameterKeys.NoJSONCallback)=\(APIConstants.FlickrParameterValues.DisableJSONCallback)"
+        let url = URL(string: urlString)!
+        print(url)
+        
+        
+    }
 
 
 }
